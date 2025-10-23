@@ -145,6 +145,19 @@ body {
     background-color: var(--text-primary);
     margin: 3px 0;
     transition: var(--transition);
+    transform-origin: center; 
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Hero Section */
@@ -676,39 +689,37 @@ section {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
-    }
-    
-    .hamburger {
-        display: flex;
-    }
-    
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    
-    .hero-buttons {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--bg-primary);
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        gap: 30px;
+        transition: var(--transition);
+        border-top: 1px solid var(--border-color);
+        display: flex;
     }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
+
+    .nav-menu.active {
+        left: 0;
     }
-    
-    .section-title {
-        font-size: 2rem;
+
+    .nav-link {
+        font-size: 1.2rem;
+        padding: 10px 0;
     }
-    
-    .stats {
-        flex-direction: column;
-        gap: 20px;
+
+    .nav-link.cta-link {
+        margin-top: 20px;
     }
-    
-    .floating-card {
-        width: 220px;
-        padding: 20px;
+
+    .hamburger {
+        display: flex;
     }
 }
 
